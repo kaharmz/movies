@@ -1,0 +1,39 @@
+#Instrument test
+
+Menampilkan data Movie
+    1. Memastikan rv_movie dalam keadaan tampil
+    2. Gulir rv_movie ke posisi data terakhir
+    
+
+Menampilkan Detail Movie
+    1. Memberikan tindakan klik pada data pertama di rv_movie
+    2. Memastikan ImageView tampil sesuai yang diharapkan
+    3. Memastikan TextView title tampil sesuai yang diharapkan
+    4. Memastikan TextView sub title tampil sesuai yang diharapkan
+    5. Memastikan TextView genre tampil sesuai yang diharapkan
+    6. Memastikan TextView date release tampil sesuai yang diharapkan
+    7. Memastikan TextView cast tampil sesuai yang diharapkan
+    8. Memastikan TextView overview tampil sesuai yang diharapkan
+    9. Memberikan tindakan swipe up
+    10. Memberikan tindakan pada button share
+    
+Menampilkan data Tv Show
+    1. Memberikan tindakan klik dengan pada tabs Tv Show
+    2. Memastikan rv_tv_show dalam keadaan tampil
+    3. Gulir rv_movie ke posisi data terakhir
+    
+
+Menampilkan Detail Tv Show
+    1. Memberikan tindakan klik dengan pada tabs Tv Show
+    2. Memberikan tindakan klik pada data pertama di rv_tv_show
+    3. Memastikan ImageView tampil sesuai yang diharapkan
+    4. Memastikan TextView title tampil sesuai yang diharapkan
+    5. Memastikan TextView sub title tampil sesuai yang diharapkan
+    6. Memastikan TextView genre tampil sesuai yang diharapkan
+    7. Memastikan TextView date release tampil sesuai yang diharapkan
+    8. Memastikan TextView cast tampil sesuai yang diharapkan
+    9. Memastikan TextView overview tampil sesuai yang diharapkan
+    10. Memberikan tindakan swipe up
+    11. Memberikan tindakan pada button share
+    
+    

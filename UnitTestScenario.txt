@@ -1,0 +1,18 @@
+#Unit test
+
+MovieViewModelTest
+    Memuat Movie
+        1. Memastikan data movie tidak null
+        2. Memastikan jumlah data movie sesuai dengan yang diharapkan
+        
+TvShowViewModelTest
+    Memuat TvShow
+        1. Memastikan data tvshow tidak null
+        2. Memastikan jumlah data tvshow sesuai dengan yang diharapkan
+        
+DetailMovieViewModelTest
+    Memuat data Movie dan TvShow
+        1. Memastikan data movie tidak null
+        2. Memastikan jumlah data movie sesuai dengan yang diharapkan
+        3. Memastikan data tvshow tidak null
+        4. Memastikan jumlah data tvshow sesuai dengan yang diharapkan
