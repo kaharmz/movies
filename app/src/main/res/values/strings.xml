@@ -3,7 +3,7 @@
     <string name="title_activity_detail_movie">Detail movie</string>
 
     <string name="title">Title</string>
-    <string name="score">Score</string>
+    <string name="score">Vote</string>
     <string name="genre">Genre</string>
     <string name="overview">Overview</string>
     <string name="movie">Movie</string>
@@ -11,4 +11,6 @@
     <string name="dummyText">Lorem Ipsum Dolor Sit Amet</string>
     <string name="cast_and_crew">Cast and Crew</string>
     <string name="share">Share</string>
+    <string name="released_on_date">Released on date :</string>
+    <string name="language">Language :</string>
 </resources>

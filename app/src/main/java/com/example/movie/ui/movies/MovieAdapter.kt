@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.movie.BuildConfig
 import com.example.movie.R
 import com.example.movie.data.Movie
 import com.example.movie.databinding.ItemsMovieBinding
 import com.example.movie.ui.detail.DetailMovieActivity
+import com.example.movie.ui.detail.DetailMovieActivity.Companion.TYPE_MOVIE
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -17,14 +19,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     fun setMovie(movies: List<Movie>?) {
 
-        when (movies) {
-            null -> return
-            else -> {
-                this.listMovie.clear()
+        if (movies == null) return
 
-                this.listMovie.addAll(movies)
-            }
-        }
+        this.listMovie.clear()
+
+        this.listMovie.addAll(movies)
 
     }
 
@@ -52,11 +51,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
                 tvItemTitle.text = movies.title
 
-                tvItemUserScore.text = movies.userScore
+                tvVoteCount.text = movies.voteCount.toString()
 
                 Glide.with(itemView.context)
 
-                        .load(movies.image)
+                        .load(BuildConfig.BASE_POSTER_URL + movies.posterPath)
 
                         .centerCrop()
 
@@ -68,10 +67,12 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
                 itemView.setOnClickListener {
 
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    val intent = Intent(itemView.context, DetailMovieActivity::class.java).apply {
 
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.id)
+                        putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.id)
 
+                        putExtra(DetailMovieActivity.EXTRA_TYPE, TYPE_MOVIE)
+                    }
                     itemView.context.startActivity(intent)
                 }
             }

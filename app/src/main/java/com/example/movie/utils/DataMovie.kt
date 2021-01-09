@@ -2,6 +2,8 @@ package com.example.movie.utils
 
 import com.example.movie.data.Movie
 import com.example.movie.data.TvShow
+import com.example.movie.data.source.remote.response.item.MoviesItem
+import com.example.movie.data.source.remote.response.item.TvShowItem
 
 
 object DataMovie {
@@ -12,132 +14,142 @@ object DataMovie {
 
         movies.add(
                 Movie(
-                        "MV001",
-                        "Alita: Battle Angel",
-                        "An angel falls. A warrior rises.",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/8LyWVwDbU4vsOwns8RxOB9aX73l.jpg",
-                        "February, 14, 2019 (US)",
-                        "71",
-                        "Action, Science Fiction, Adventure ",
-                        "Rosa Salazar as (Alita), Christoph Waltz as (Dr. Dyson Ido), Jeniffer Connelly as (Chiren), Mahershala Ali as (Vector), Ed Skrein as (Zapan), Jackie Earle as (Grewishka)",
-                        "When Alita awakens with no memory of who she is in a future world she does not recognize, she is taken in by Ido, a compassionate doctor who realizes that somewhere in this abandoned cyborg shell is the heart and soul of a young woman with an extraordinary past."
+                        464052,
+                        "Wonder Woman 1984",
+                        "2020-12-16",
+                        "en",
+                        4167.11,
+                        2255,
+                        7.3,
+                        "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.",
+                        "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+                        "/srYya1ZlI97Au4jUYAktDe3avyA.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV002",
+                        517096,
                         "Aquaman (2018) ",
-                        "Home Is Calling",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/3RVyfRV8Zfy2VNFtxyrh0rJ9fDa.jpg",
-                        "December, 21, 2018 (US)",
-                        "69",
-                        "Action, Adventure, Fantasy ",
-                        "Jason Momoa as (Aquaman), Amber Heard as (Mera), Willem Dafoe as (Nuidis vulko), Patrick Wilson as (Ocean Master), Nicole Kidman as (altana), Dolph Lundgren as (King Nereus), Yahya Abdul-Mateen II  as (Manta), Temuera Morrison as (Thomas Curry)",
-                        "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne."
+                        "HCosmoball",
+                        "ru",
+                        2856.461,
+                        30,
+                        4.7,
+                        "Cosmoball is a mesmerizing intergalactic game of future played between humans and aliens at the giant extraterrestrial ship hovering in the sky over Earth. A young man with enormous power of an unknown nature joins the team of hot-headed superheroes in exchange for a cure for his mother’s deadly illness. The Four from Earth will fight not only to defend the honor of their home planet in the spectacular game, but to face the unprecedented threat to the Galaxy and embrace their own destiny.",
+                        "/eDJYDXRoWoUzxjd52gtz5ODTSU1.jpg",
+                        "/ibwOX4xUndc6E90MYfglghWvO5Z.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV003",
-                        "Bohemian Rhapsody",
-                        "Fearless lives forever",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/gbmkFWdtihe1VfydTDsieQ6VfGL.jpg",
-                        "November, 02, 2018 (US)",
-                        "80",
-                        "Music, Drama",
-                        "Rami Malek as (Freddie Mercury), Gwilym Lee as (Brian May), Ben Hardy aas (Roger Taylor), Joseph Mazzello as (Jhon Deacon), Lucy Boynton as (Mary Austin), Aidan Gillen as (John Reid)",
-                        "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success "
+                        508442,
+                        "Soul",
+                        "2020-12-25",
+                        "en",
+                        3283.369,
+                        2900,
+                        8.4,
+                        "Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.",
+                        "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg",
+                        "/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV004",
-                        "Cold Pursuit (2019) ",
-                        "Meet Nels Coxman. Citizen of the Year.",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ve02xYXnw846df6hVLZeTvq8xG2.jpg",
-                        "February, 08, 2019 (US)",
-                        "56",
-                        "Action, Crime, Thriller",
-                        "Liam Neeson as (Nels Coxman), Laura Dern as (Grace Coxman), Emmy Rossum as (Kim Dash), Michael Eklund as (Steve), Michael Richardson as (Kyle)",
-                        "The quiet family life of Nels Coxman, a snowplow driver, is upended after his son's murder. Nels begins a vengeful hunt for Viking, the drug lord he holds responsible for the killing, eliminating Viking's associates one by one. As Nels draws closer to Viking, his actions bring even more unexpected and violent consequences, as he proves that revenge is all in the execution."
+                        755812,
+                        "Miraculous World: New York, United HeroeZ",
+                        "2020-10-10",
+                        "fr",
+                        2551.694,
+                        235,
+                        8.6,
+                        "During a school field trip, Ladybug and Cat Noir meet the American superheroes, whom they have to save from an akumatised super-villain. They discover that Miraculous exist in the United States too.",
+                        "/kIHgjAkuzvKBnmdstpBOo4AfZah.jpg",
+                        "/yR27bZPIkNhpGEIP3jKV2EifTgo.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV005",
-                        "Creed II (2018)",
-                        "There's More to Lose than a Title",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/AlNeuM1oMTvlQnredazHIkowSEj.jpg",
-                        " November, 21, 2018 (US)",
-                        "69",
-                        "Drama",
-                        "Michael B. Jordan as (Ardonis Creed), Sylvester Stallone as (Rocky), Dolph Lundgren as (Ivan Drago), Florian Munteanu as (Viktor), Tessa Thompson as (Bianca Taylor), Wood Harris as (Tony)",
-                        "Between personal obligations and training for his next big fight against an opponent with ties to his family's past, Adonis Creed is up against the challenge of his life."
+                        614911,
+                        "The Midnight Sky",
+                        "2020-12-10",
+                        "en",
+                        2058.091,
+                        784,
+                        6.0,
+                        "A lone scientist in the Arctic races to contact a crew of astronauts returning home to a mysterious global catastrophe.",
+                        "/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg",
+                        "/dueiWzWc81UAgnbDAyH4Gjqnh4n.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV006",
-                        "T-34 (2018)",
-                        "Fast And Furious On Tanks",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/yGeEa7bkEdTrkTIoZqzirCeVDfZ.jpg",
-                        "January, 01, 2019 (RU)",
-                        "68",
-                        "War, Action, Drama, History ",
-                        "Alexander Petrov as (Nikolay Ivushkin), Victor Dobronravov as (Vasilenok), Irina Starshenbaum as (Anya), Vinzenz Kiefer as (Klaus Jäger), Petr Skvortsov as (Lykov), Semyon Treskunov as (Vasiliy Teterya) ",
-                        "In 1944, a courageous group of Russian soldiers managed to escape from German captivity in a half-destroyed legendary T-34 tank. Those were the times of unforgettable bravery, fierce fighting, unbreakable love, and legendary miracles."
+                        604822,
+                        "Vanguard",
+                        "2020-09-30",
+                        "zh",
+                        2304.474,
+                        113,
+                        7.4,
+                        "Covert security company Vanguard is the last hope of survival for an accountant after he is targeted by the world's deadliest mercenary organization.",
+                        "/vYvppZMvXYheYTWVd8Rnn9nsmNp.jpg",
+                        "/fX8e94MEWSuTJExndVYxKsmA4Hw.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV007",
-                        "Serenity (2019) ",
-                        "On Plymouth Island, no one ever dies… unless you break the rules",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/kV8Om14OKvVeFB4esw1JNFk0kfo.jpg",
-                        "January, 25, 2019 (US)",
-                        "54",
-                        "Thriller, Mystery, Drama ",
-                        "Matthew McConaughey as (Baker Dill), Anne Hathaway as (Karen Zariakas), Jason Clarke as (Frank Zariakas), Diane Lane as (Constance), Djimon Hounsou as (Duke), Jeremy Strong as (Reid Miller)",
-                        "The quiet life of Baker Dill, a fishing boat captain who lives on the isolated Plymouth Island, where he spends his days obsessed with capturing an elusive tuna while fighting his personal demons, is interrupted when someone from his past comes to him searching for help."
+                        615677,
+                        "We Can Be Heroes",
+                        "2020-12-25",
+                        "en",
+                        1857.713,
+                        182,
+                        6.2,
+                        "When alien invaders capture Earth's superheroes, their kids must learn to work together to save their parents - and the planet.",
+                        "/1S21HpcKY6uQ9UAw68aICmrJaq6.jpg",
+                        "/UgNke0mMQhQdnX2hEu4cN83M0a.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV008",
-                        "Glass (2019) ",
-                        "You Cannot Contain What You Are",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/dkj0xUrMx4ISiuEjnfA2BlONtgI.jpg",
-                        "January, 18, 2019 (US)",
-                        "66",
-                        " Thriller, Drama, Science Fiction ",
-                        "James McAvoy as (Patricia), Bruce Willis as (David Dunn), Anya Taylor-Joy as (Casey Cooke), Sarah Paulson as (Dr. Ellie Staple). Samuel L. Jackson as (Elijah Price / Mr. Glass),  William Turner as (Young Elijah)",
-                        "In a series of escalating encounters, former security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities. Meanwhile, the shadowy presence of Elijah Price emerges as an orchestrator who holds secrets critical to both men."
+                        733317,
+                        "onsters of Man",
+                        "2020-11-19",
+                        "en",
+                        1398.633,
+                        111,
+                        7.3,
+                        "A robotics company vying to win a lucrative military contract team up with a corrupt CIA agent to conduct an illegal live field test. They deploy four weaponized prototype robots into a suspected drug manufacturing camp in the Golden Triangle, assuming they'd be killing drug runners that no one would miss. Six doctors on a humanitarian mission witness the brutal slaughter and become prime targets.",
+                        "/1f3qspv64L5FXrRy0MF8X92ieuw.jpg",
+                        "/z15NpieRw7jL7bKoICwLO5j7FgZ.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV009",
-                        "Master Z: Ip Man Legacy (2018) ",
+                        646593,
+                        "Wander",
                         "Asian Kungfu Generation",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/puPdv7xyTM8Zidli3TPjWbAPcWJ.jpg",
-                        "December, 26, 2018 (TW) ",
-                        "57",
-                        "Actions",
-                        "Zhang Jin as (Cheung Tin-Chi), Dave Bautista as (Owen Davidson), Liu Yan as (Julia), Xing yu as (Fu), Michelle Yeoh as (Sis Ha),Tony Jaa (Sadi)",
-                        "Following his defeat by Master Ip, Cheung Tin Chi tries to make a life with his young son in Hong Kong, waiting tables at a bar that caters to expats. But it's not long before the mix of foreigners, money, and triad leaders draw him once again to the fight."
+                        "2020-12-04",
+                        1415.658,
+                        67,
+                        5.2,
+                        "After getting hired to probe a suspicious death in the small town of Wander, a mentally unstable private investigator becomes convinced the case is linked to the same 'conspiracy cover up' that caused the death of his daughter.",
+                        "/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg",
+                        "/wk58aoyWpMTVkKkdjw889XfWGdL.jpg"
                 )
         )
         movies.add(
                 Movie(
-                        "MV010",
-                        "Robin Hood (2018)",
-                        "The legend you know. The story you don't.",
-                        "https://image.tmdb.org/t/p/w600_and_h900_bestv2/7VuQnjdmS93gkee96ErNPVUNtw6.jpg",
-                        "November, 21, 2018 (US)",
-                        "59",
-                        "Adventure, Action, Thriller ",
-                        "Taron Egerton as (Robin of Loxley), Jamie Foxx as (Yahya / John), Ben Mendelsohn as (Sheriff of Nottingham), Eve Hewson as (Marian), Jamie Dornan as (Will Scarlet), Tim Minchin as (Friar Tuck)",
-                        "A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown."
+                        743904,
+                        "Curious George: Go West, Go Wild",
+                        "2020-09-08",
+                        "en",
+                        640.516,
+                        25,
+                        6.7,
+                        "While farm-sitting, George accidentally lets the farm animals escape. Ted, George and wannabe cowboy Emmett must round 'em up, accounting for every animal -- and emerging with some new skills, to boot.",
+                        "/7WWOiP8F6PHjXpJrnRZfvO2XNW.jpg",
+                        "/mzMCO3dArUcg1OTmjxi8oZ0FQvK.jpg"
                 )
         )
         return movies
@@ -149,132 +161,438 @@ object DataMovie {
 
         tvShows.add(
                 TvShow(
-                        "TS001",
-                        "Naruto Shippuden the Movie: Road to Ninja (2012) ",
-                        "Road To Ninja",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/euiQ3P7E6wPdETmzWQj7kyDiE3D.jpg",
-                        "July, 28, 2012 (JP)",
-                        "75",
-                        "Fantasy, Animation, Action, Adventure ",
-                        "Junko Takeuchi as (Naruto), Chie Nakamura as (Sakura), Toshiyuki Morikawa as (Minato), Emi Shinohara as (Kushina), Kazuhiko Inoue as (Kakashi), Naoya Uchida as (Obito), Noriaki Sugiyama as (Sasuke)",
-                        "Sixteen years ago, a mysterious masked ninja unleashes a powerful creature known as the Nine-Tailed Demon Fox on the Hidden Leaf Village Konoha, killing many people. In response, the Fourth Hokage Minato Namikaze and his wife Kushina Uzumaki, the Demon Fox's living prison or Jinchūriki, manage to seal the creature inside their newborn son Naruto Uzumaki. With the Tailed Beast sealed, things continued as normal. However, in the present day, peace ended when a group of ninja called the Akatsuki attack Konoha under the guidance of Tobi, the mysterious masked man behind Fox's rampage years ago who intends on executing his plan to rule the world by shrouding it in illusions.",
+                        77169,
+                        "Cobra Kai",
+                        "2018-05-02",
+                        "en",
+                        1495.092,
+                        1529,
+                        8.1,
+                        "This Karate Kid sequel series picks up 30 years after the events of the 1984 All Valley Karate Tournament and finds Johnny Lawrence on the hunt for redemption by reopening the infamous Cobra Kai karate dojo. This reignites his old rivalry with the successful Daniel LaRusso, who has been working to maintain the balance in his life without mentor Mr. Miyagi.",
+                        "/obLBdhLxheKg8Li1qO11r2SwmYO.jpg",
+                        "/gL8myjGc2qrmqVosyGm5CWTir9A.jpg"
                 )
         )
         tvShows.add(
                 TvShow(
-                        "TS002",
-                        "Dragon Ball Super (2015)",
-                        "",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/1Ew5yqldGcy0af9EB3ukoJslVQx.jpg",
-                        "July, 28, 2015 (JP)",
-                        "82",
-                        "Animation, Action & Adventure, Sci-Fi & Fantasy ",
-                        "Masako Nozawa as (Son Goku), Takeshi Kusao as (Trunks (voice)), Ryou Horikawa as (Vegeta (voice)), Hiromi Tsuru as (Bulma (voice)), Eiko Yamada (Mai), Yūko Minaguchi as (Videl/Pan (voices)), Naoko Watanabe as (Chichi/Pu'er (voices))",
-                        "With Majin Boo defeated half-a-year prior, peace returns to Earth, where Son Goku (now a radish farmer) and his friends now live peaceful lives. However, a new threat appears in the form of Beerus, the God of Destruction. Considered the most terrifying being in the entire universe, Beerus is eager to fight the legendary warrior seen in a prophecy foretold decades ago known as the Super Saiyan God. The series retells the events from the two Dragon Ball Z films, Battle of Gods and Resurrection 'F' before proceeding to an original story about the exploration of alternate universes."
+                        79242,
+                        "Chilling Adventures of Sabrina",
+                        "2018-10-26",
+                        "en",
+                        097.927,
+                        1988,
+                        8.4,
+                        "As her 16th birthday nears, Sabrina must choose between the witch world of her family and the human world of her friends. Based on the Archie comic.",
+                        "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg",
+                        "/8AdmUPTyidDebwIuakqkSt6u1II.jpg"
                 )
         )
         tvShows.add(
                 TvShow(
-                        "TS003",
-                        "The Simpsons (1989) ",
-                        "On your marks, get set, d'oh!",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/adZ9ldSlkGfLfsHNbh37ZThCcgU.jpg",
-                        "1989",
-                        "78",
-                        "Animation, Comedy, Family, Drama ",
-                        "Dan Castellaneta as (Homer Simpson), Julie Kavner as (Marge Simpson), Nancy Cartwright as (Bart Simpson), Yeardley Smith as (Lisa Simpson), Hank Azaria as (Apu), Harry Shearer as (Ned Flanders), Tress MacNeille as (Lanely Fontaine)",
-                        "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general."
+                        44217,
+                        "Vikings",
+                        "2013-03-03",
+                        "en",
+                        1022.858,
+                        3707,
+                        7.9,
+                        "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
+                        "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+                        "/aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg"
                 )
         )
         tvShows.add(
                 TvShow(
-                        "TS004",
-                        "Gotham (2014)",
-                        "Before Batman, there was Gotham.",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/97GsCX3k6BbprnBIIMlVKirmhLz.jpg",
-                        "2014",
-                        "75",
-                        "Drama, Fantasy, Crime ",
-                        "Ben McKenzie as (James), Donal Logue as (Harvey Bullock), David Mazouz as (Bruce Wayne), Sean Pertwee as (Alfred Pennyworth), Robin Lord Taylor as (Oswald Cobblepot), Erin Richards as (Barbara Kean), Camren Bicondova as (Selina Kyle / Cat)",
-                        "Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?"
+                        82856,
+                        "The Mandalorian",
+                        "2019-11-12",
+                        "en",
+                        933.919,
+                        4983,
+                        8.5,
+                        "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+                        "/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+                        "/o7qi2v4uWQ8bZ1tW3KI0Ztn2epk.jpg"
                 )
         )
         tvShows.add(
                 TvShow(
-                        "TS005",
-                        "Hanna (2019) ",
-                        "",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/fAretNYOP4Gu8XLo5hxS4taHbwq.jpg",
-                        "2019",
-                        "74",
-                        "Action & Adventure, Drama ",
-                        "Esme Creed-Miles as (Hanna), Mireille Enos as (Marissa), Noah Taylor as (Dr. Roland Kunek),Joel Kinnaman as (Erik Heller), Cherrelle Skeete as (Terri Miller), Anthony Welsh as (Leo), Áine Rose Daly as (Trainee 242 / Sandy Phillips)",
-                        "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film."
+                        71712,
+                        "The Good Doctor",
+                        "2017-09-25",
+                        "en",
+                        737.299,
+                        6291,
+                        8.6,
+                        "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives",
+                        "/6tfT03sGp9k4c0J3dypjrI8TSAI.jpg",
+                        "/hAxZgHqhQl2aWxsrOtVVDlMuD5m.jpg"
                 )
         )
         tvShows.add(
-                TvShow("TS006",
-                        "Supergirl (2015) ",
-                        "A force against fear",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/uQ2jSIxl666ZCjjYV8MQzCirtLx.jpg",
-                        "2015",
-                        "71",
-                        "Action, Adventure, Drama, Science Fiction ",
-                        "David Harewood as (Cyborg Superman, J'onn J'onzz / Martian Manhunter), Melissa Benoist as (Kara Danvers / Supergirl / Kara Zor-El), Chyler Leigh as (Alex Danvers),  Mehcad Brooks as (James Olsen / Guardian), Katie McGrath as (Lena Luthor), Jeremy Jordan as (Winn Schott, Winn Schott / Toyman)",
-                        "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism."
+                TvShow(
+                        1416,
+                        "Grey's Anatomy",
+                        "2005-03-27",
+                        "en",
+                        626.118,
+                        4876,
+                        8.1,
+                        "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+                        "/clnyhPqj1SNgpAdeSS6a6fwE6Bo.jpg",
+                        "/edmk8xjGBsYVIf4QtLY9WMaMcXZ.jpg"
                 )
         )
         tvShows.add(
-                TvShow("TS007",
-                        "Marvel's Iron Fist (2017) ",
-                        "",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/xHCfWGlxwbtMeeOnTvxUCZRGnkk.jpg",
-                        "2017",
-                        "65",
-                        "Action & Adventure, Drama, Sci-Fi & Fantasy ",
-                        "Finn Jones as (Danny Rand), Jessica Henwick as (Colleen Wing), Jessica Stroup as (Joy Meachum), Tom Pelphrey as (Ward Meachum), Sacha Dhawan as (Davos), Rosario Dawson as (Claire Temple)",
-                        "Danny Rand resurfaces 15 years after being presumed dead. Now, with the power of the Iron Fist, he seeks to reclaim his past and fulfill his destiny."
+                TvShow(69050,
+                        "Riverdale",
+                        "2017-01-26",
+                        "en",
+                        509.203,
+                        7512,
+                        8.6,
+                        "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of real small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+                        "/4X7o1ssOEvp4BFLim1AZmPNcYbU.jpg",
+                        "/4X7o1ssOEvp4BFLim1AZmPNcYbU.jpg\""
                 )
         )
         tvShows.add(
-                TvShow("TS008",
+                TvShow(75006,
                         "NCIS (2003) ",
-                        "",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/4VuCtYBvZGq6Rk3gloigwlsTefE.jpg",
-                        "2003",
-                        "72",
-                        "Crime, Action & Adventure, Drama ",
-                        "Mark Harmon as (Leroy Jethro Gibbs), David McCallum as (Donald \"Ducky\" Mallard), Sean Murray as (Timothy McGee), Pauley Perrette as (Abby Sciuto), Michael Weatherly as (Tony DiNozzo), Rocky Carroll as (Leon Vance), Brian Dietzen as (Jimmy Palmer) ",
-                        "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position."
-                )
-        )
-        tvShows.add(
-                TvShow("TS009",
-                        "The Flash (2014) ",
-                        "The fastest man alive.",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/jeruqNWhqRqOR1QyqdQdHunrvU5.jpg",
-                        "2014",
-                        "76",
-                        "Drama, Sci-Fi & Fantasy ",
-                        "Grant Gustin as (Barry Allen / The Flash, Barry Allen / Savitar), Carlos Valdes as (Cisco Ramon / Vibe, Pablo, Cisco Ramon, Cisco Ramon / Echo, Francisco Ramon / Reverb), Danielle Panabaker as (Killer Frost, Caitlin Snow, Caitlin Frost / Killer Frost), Candice Patton as (ris West-Allen, Millie Foss)",
-                        "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash."
+                        "2019-02-15",
+                        "en",
+                        469.262,
+                        5185,
+                        8.7,
+                        "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+                        "/scZlQQYnDVlnpxFTxaIv2g0BWnL.jpg",
+                        "/mE3zzMkpP8yqlkzdjPsQmJHceoe.jpg"
                 )
         )
         tvShows.add(
                 TvShow(
-                        "TS010",
-                        "Riverdale (2017) ",
-                        "Small town. Big secrets.",
-                        "https://image.tmdb.org/t/p/w533_and_h300_bestv2/9hvhGtcsGhQY58pukw8w55UEUbL.jpg",
-                        "2017",
-                        "86",
-                        "Drama, Mystery ",
-                        "Lili Reinhart as (Elizabeth \"Betty\" Cooper), K.J. Apa as (Archie Andrews), Cole Sprouse as (Jughead Jones), Camila Mendes as (Veronica Lodge), Madelaine Petsch as (Cheryl Blossom), Casey Cott as (Kevin Keller)",
-                        "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade."
+                        96648,
+                        "Sweet Home",
+                        "2020-12-18",
+                        "ko",
+                        467.797,
+                        219,
+                        8.5,
+                        "Cha Hyun-Soo is a high school student. He is also a recluse and rarely leaves his room. He refuses to talk to his father, mother and younger sister. One day, his whole family, except for him, dies in a car accident. Cha Hyun-Soo is left all alone. He moves into a small apartment. At this time, a mysterious phenomenon of humans turning into monster occur all around the world. The residents of Cha Hyun-Soo's apartment building, including Pyeon Sang-Wook, fight against these monsters and try to survive.",
+                        "/6eMg81CPLalULg8spPt2LxfQtFj.jpg",
+                        "/9PaJZrGW5qYXfSVJYAmKIEEQMdH.jpg",
+
+                        )
+        )
+        tvShows.add(
+                TvShow(
+                        63174,
+                        "Lucifer",
+                        "2016-01-25",
+                        "en",
+                        454.623,
+                        7006,
+                        8.5,
+                        "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape",
+                        "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                        "/ta5oblpMlEcIPIS2YGcq9XEkWK2.jpg"
+                )
+        )
+
+        return tvShows
+    }
+
+    fun generateRemoteDataMovie(): ArrayList<MoviesItem> {
+
+        val movies = ArrayList<MoviesItem>()
+
+        movies.add(
+                MoviesItem(
+                        464052,
+                        "Wonder Woman 1984",
+                        "2020-12-16",
+                        "en",
+                        4167.11,
+                        2255,
+                        7.3,
+                        "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.",
+                        "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+                        "/srYya1ZlI97Au4jUYAktDe3avyA.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        517096,
+                        "Aquaman (2018) ",
+                        "HCosmoball",
+                        "ru",
+                        2856.461,
+                        30,
+                        4.7,
+                        "Cosmoball is a mesmerizing intergalactic game of future played between humans and aliens at the giant extraterrestrial ship hovering in the sky over Earth. A young man with enormous power of an unknown nature joins the team of hot-headed superheroes in exchange for a cure for his mother’s deadly illness. The Four from Earth will fight not only to defend the honor of their home planet in the spectacular game, but to face the unprecedented threat to the Galaxy and embrace their own destiny.",
+                        "/eDJYDXRoWoUzxjd52gtz5ODTSU1.jpg",
+                        "/ibwOX4xUndc6E90MYfglghWvO5Z.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        508442,
+                        "Soul",
+                        "2020-12-25",
+                        "en",
+                        3283.369,
+                        2900,
+                        8.4,
+                        "Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.",
+                        "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg",
+                        "/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        755812,
+                        "Miraculous World: New York, United HeroeZ",
+                        "2020-10-10",
+                        "fr",
+                        2551.694,
+                        235,
+                        8.6,
+                        "During a school field trip, Ladybug and Cat Noir meet the American superheroes, whom they have to save from an akumatised super-villain. They discover that Miraculous exist in the United States too.",
+                        "/kIHgjAkuzvKBnmdstpBOo4AfZah.jpg",
+                        "/yR27bZPIkNhpGEIP3jKV2EifTgo.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        614911,
+                        "The Midnight Sky",
+                        "2020-12-10",
+                        "en",
+                        2058.091,
+                        784,
+                        6.0,
+                        "A lone scientist in the Arctic races to contact a crew of astronauts returning home to a mysterious global catastrophe.",
+                        "/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg",
+                        "/dueiWzWc81UAgnbDAyH4Gjqnh4n.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        604822,
+                        "Vanguard",
+                        "2020-09-30",
+                        "zh",
+                        2304.474,
+                        113,
+                        7.4,
+                        "Covert security company Vanguard is the last hope of survival for an accountant after he is targeted by the world's deadliest mercenary organization.",
+                        "/vYvppZMvXYheYTWVd8Rnn9nsmNp.jpg",
+                        "/fX8e94MEWSuTJExndVYxKsmA4Hw.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        615677,
+                        "We Can Be Heroes",
+                        "2020-12-25",
+                        "en",
+                        1857.713,
+                        182,
+                        6.2,
+                        "When alien invaders capture Earth's superheroes, their kids must learn to work together to save their parents - and the planet.",
+                        "/1S21HpcKY6uQ9UAw68aICmrJaq6.jpg",
+                        "/UgNke0mMQhQdnX2hEu4cN83M0a.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        733317,
+                        "onsters of Man",
+                        "2020-11-19",
+                        "en",
+                        1398.633,
+                        111,
+                        7.3,
+                        "A robotics company vying to win a lucrative military contract team up with a corrupt CIA agent to conduct an illegal live field test. They deploy four weaponized prototype robots into a suspected drug manufacturing camp in the Golden Triangle, assuming they'd be killing drug runners that no one would miss. Six doctors on a humanitarian mission witness the brutal slaughter and become prime targets.",
+                        "/1f3qspv64L5FXrRy0MF8X92ieuw.jpg",
+                        "/z15NpieRw7jL7bKoICwLO5j7FgZ.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        646593,
+                        "Wander",
+                        "Asian Kungfu Generation",
+                        "2020-12-04",
+                        1415.658,
+                        67,
+                        5.2,
+                        "After getting hired to probe a suspicious death in the small town of Wander, a mentally unstable private investigator becomes convinced the case is linked to the same 'conspiracy cover up' that caused the death of his daughter.",
+                        "/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg",
+                        "/wk58aoyWpMTVkKkdjw889XfWGdL.jpg"
+                )
+        )
+        movies.add(
+                MoviesItem(
+                        743904,
+                        "Curious George: Go West, Go Wild",
+                        "2020-09-08",
+                        "en",
+                        640.516,
+                        25,
+                        6.7,
+                        "While farm-sitting, George accidentally lets the farm animals escape. Ted, George and wannabe cowboy Emmett must round 'em up, accounting for every animal -- and emerging with some new skills, to boot.",
+                        "/7WWOiP8F6PHjXpJrnRZfvO2XNW.jpg",
+                        "/mzMCO3dArUcg1OTmjxi8oZ0FQvK.jpg"
+                )
+        )
+        return movies
+    }
+
+    fun generateRemoteDataTvShow(): ArrayList<TvShowItem> {
+
+        val tvShows = ArrayList<TvShowItem>()
+
+        tvShows.add(
+                TvShowItem(
+                        77169,
+                        "Cobra Kai",
+                        "2018-05-02",
+                        "en",
+                        1495.092,
+                        1529,
+                        8.1,
+                        "This Karate Kid sequel series picks up 30 years after the events of the 1984 All Valley Karate Tournament and finds Johnny Lawrence on the hunt for redemption by reopening the infamous Cobra Kai karate dojo. This reignites his old rivalry with the successful Daniel LaRusso, who has been working to maintain the balance in his life without mentor Mr. Miyagi.",
+                        "/obLBdhLxheKg8Li1qO11r2SwmYO.jpg",
+                        "/gL8myjGc2qrmqVosyGm5CWTir9A.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        79242,
+                        "Chilling Adventures of Sabrina",
+                        "2018-10-26",
+                        "en",
+                        097.927,
+                        1988,
+                        8.4,
+                        "As her 16th birthday nears, Sabrina must choose between the witch world of her family and the human world of her friends. Based on the Archie comic.",
+                        "/yxMpoHO0CXP5o9gB7IfsciilQS4.jpg",
+                        "/8AdmUPTyidDebwIuakqkSt6u1II.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        44217,
+                        "Vikings",
+                        "2013-03-03",
+                        "en",
+                        1022.858,
+                        3707,
+                        7.9,
+                        "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
+                        "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+                        "/aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        82856,
+                        "The Mandalorian",
+                        "2019-11-12",
+                        "en",
+                        933.919,
+                        4983,
+                        8.5,
+                        "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+                        "/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+                        "/o7qi2v4uWQ8bZ1tW3KI0Ztn2epk.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        71712,
+                        "The Good Doctor",
+                        "2017-09-25",
+                        "en",
+                        737.299,
+                        6291,
+                        8.6,
+                        "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives",
+                        "/6tfT03sGp9k4c0J3dypjrI8TSAI.jpg",
+                        "/hAxZgHqhQl2aWxsrOtVVDlMuD5m.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        1416,
+                        "Grey's Anatomy",
+                        "2005-03-27",
+                        "en",
+                        626.118,
+                        4876,
+                        8.1,
+                        "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+                        "/clnyhPqj1SNgpAdeSS6a6fwE6Bo.jpg",
+                        "/edmk8xjGBsYVIf4QtLY9WMaMcXZ.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(69050,
+                        "Riverdale",
+                        "2017-01-26",
+                        "en",
+                        509.203,
+                        7512,
+                        8.6,
+                        "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of real small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+                        "/4X7o1ssOEvp4BFLim1AZmPNcYbU.jpg",
+                        "/4X7o1ssOEvp4BFLim1AZmPNcYbU.jpg\""
+                )
+        )
+        tvShows.add(
+                TvShowItem(75006,
+                        "NCIS (2003) ",
+                        "2019-02-15",
+                        "en",
+                        469.262,
+                        5185,
+                        8.7,
+                        "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+                        "/scZlQQYnDVlnpxFTxaIv2g0BWnL.jpg",
+                        "/mE3zzMkpP8yqlkzdjPsQmJHceoe.jpg"
+                )
+        )
+        tvShows.add(
+                TvShowItem(
+                        96648,
+                        "Sweet Home",
+                        "2020-12-18",
+                        "ko",
+                        467.797,
+                        219,
+                        8.5,
+                        "Cha Hyun-Soo is a high school student. He is also a recluse and rarely leaves his room. He refuses to talk to his father, mother and younger sister. One day, his whole family, except for him, dies in a car accident. Cha Hyun-Soo is left all alone. He moves into a small apartment. At this time, a mysterious phenomenon of humans turning into monster occur all around the world. The residents of Cha Hyun-Soo's apartment building, including Pyeon Sang-Wook, fight against these monsters and try to survive.",
+                        "/6eMg81CPLalULg8spPt2LxfQtFj.jpg",
+                        "/9PaJZrGW5qYXfSVJYAmKIEEQMdH.jpg",
+
+                        )
+        )
+        tvShows.add(
+                TvShowItem(
+                        63174,
+                        "Lucifer",
+                        "2016-01-25",
+                        "en",
+                        454.623,
+                        7006,
+                        8.5,
+                        "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape",
+                        "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                        "/ta5oblpMlEcIPIS2YGcq9XEkWK2.jpg"
                 )
         )
 
         return tvShows
     }
 }
-

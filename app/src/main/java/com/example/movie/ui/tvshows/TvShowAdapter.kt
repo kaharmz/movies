@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.movie.BuildConfig
 import com.example.movie.R
 import com.example.movie.data.TvShow
 import com.example.movie.databinding.ItemsTvShowBinding
@@ -29,6 +30,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
+
         val itemsTvShowBinding = ItemsTvShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return TvShowViewHolder(itemsTvShowBinding)
@@ -49,23 +51,30 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
 
             with(binding) {
 
-                tvItemTitle.text = tvShow.title
+                tvItemTitle.text = tvShow.name
 
-                tvItemUserScore.text = tvShow.userScore
+                tvItemUserScore.text = tvShow.voteAverage.toString()
 
                 Glide.with(itemView.context)
-                        .load(tvShow.image)
+
+                        .load(BuildConfig.BASE_BACKGROUND_URL + tvShow.backdropPath)
+
                         .centerCrop()
+
                         .apply(RequestOptions.placeholderOf(R.drawable.ic_image_search)
+
                                 .error(R.drawable.ic_broken_image_gray))
+
                         .into(imgTvShow)
 
                 itemView.setOnClickListener {
 
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    val intent = Intent(itemView.context, DetailMovieActivity::class.java).apply {
 
-                    intent.putExtra(DetailMovieActivity.EXTRA_TV, tvShow.id)
+                        putExtra(DetailMovieActivity.EXTRA_MOVIE, tvShow.id)
 
+                        putExtra(DetailMovieActivity.EXTRA_TYPE, DetailMovieActivity.TYPE_TV)
+                    }
                     itemView.context.startActivity(intent)
                 }
             }

@@ -16,6 +16,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // API The Movie DB
+        buildConfigField("String", "API_KEY", '"b93a89ed5038ea506dff1cef748667d2"')
+        buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
+        buildConfigField("String", "BASE_BACKGROUND_URL", '"https://www.themoviedb.org/t/p/w780"')
+        buildConfigField("String", "BASE_POSTER_URL", '"https://www.themoviedb.org/t/p/w220_and_h330_face"')
+        buildConfigField("String", "SHARE_URL", '"https://www.themoviedb.org')
     }
 
     buildTypes {
@@ -49,6 +56,11 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
 
+    //network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVesion"
+
     //testing
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "junit:junit:$junitVersion"
@@ -57,4 +69,17 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$androidTestVersion"
     androidTestImplementation "androidx.test.ext:junit:$junitExtversion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+
+    //Couroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+
+    //mockito
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "androidx.arch.core:core-testing:$archLifecycleVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+
+    //Idling Resource
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$idlingResource"
 }

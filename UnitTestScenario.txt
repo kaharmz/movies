@@ -2,17 +2,21 @@
 
 MovieViewModelTest
     Memuat Movie
-        1. Memastikan data movie tidak null
-        2. Memastikan jumlah data movie sesuai dengan yang diharapkan
+       1. memanipulasi data ketika pemanggilan data movie di kelas repository
+       2. memastikan metode dikelas repository terpanggil
+       3. melakukan pengecekan data movie apakah null atau tidak
+       4. melakukan pengecekan jumlah movie sesuai
         
 TvShowViewModelTest
     Memuat TvShow
-        1. Memastikan data tvshow tidak null
-        2. Memastikan jumlah data tvshow sesuai dengan yang diharapkan
+       1. memanipulasi data ketika pemanggilan data Tv Show di kelas repository
+       2. memastikan metode dikelas repository terpanggil
+       3. melakukan pengecekan data Tv Show apakah null atau tidak
+       4. melakukan pengecekan jumlah Tv Show sesuai
         
 DetailMovieViewModelTest
     Memuat data Movie dan TvShow
-        1. Memastikan data movie tidak null
-        2. Memastikan jumlah data movie sesuai dengan yang diharapkan
-        3. Memastikan data tvshow tidak null
-        4. Memastikan jumlah data tvshow sesuai dengan yang diharapkan
+       1. Memanipulasi data ketika pemanggilan data Movie dan TvShow di kelas repository.
+       2. Memastikan metode di kelas repository terpanggil.
+       3. Melakukan pengecekan data Movie dan TvShow apakah null atau tidak.
+       4. Membandingkan data Movie dan TvShow sudah sesuai dengan yang diharapkan atau tidak.

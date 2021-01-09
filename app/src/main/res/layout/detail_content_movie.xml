@@ -50,98 +50,178 @@
         tools:text="Title" />
 
     <TextView
-        android:id="@+id/text_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"
-        tools:text="Title" />
-
-    <TextView
-        android:id="@+id/text_date"
+        android:id="@+id/text_name_release"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:text="@string/released_on_date"
+        android:textColor="@color/teal_700"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+    <TextView
+        android:id="@+id/text_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_name_release"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/text_name_release"
+        app:layout_constraintTop_toTopOf="@+id/text_name_release"
+        tools:text="12-02-2021" />
+
+    <TextView
+        android:id="@+id/text_name_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/language"
         android:textColor="@color/teal_700"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_subtitle"
-        tools:text="@string/genre" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name_release" />
 
     <TextView
-        android:id="@+id/text_genre"
+        android:id="@+id/text_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_name_language"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_date"
-        tools:text="Date release" />
+        app:layout_constraintStart_toEndOf="@+id/text_name_language"
+        app:layout_constraintTop_toTopOf="@+id/text_name_language"
+        tools:text="English" />
 
-    <TextView
-        android:id="@+id/castAndCrew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/cast_and_crew"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:background="@android:color/darker_gray"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_genre" />
+        app:layout_constraintTop_toBottomOf="@+id/text_language" />
+
+    <ImageButton
+        android:id="@+id/image_star"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_star_large_grey"
+        app:layout_constraintEnd_toStartOf="@+id/image_popularity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_popularity"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/image_vote_average"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_bookmark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_popularity"
+        app:layout_constraintTop_toBottomOf="@+id/view_one"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/image_popularity"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_people"
+        app:layout_constraintEnd_toStartOf="@+id/image_vote_average"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_star"
+        app:layout_constraintTop_toTopOf="@+id/image_vote_average"
+        tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/text_cast"
-        android:layout_width="match_parent"
+        android:id="@+id/text_vote_count"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
         android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_popularity"
+        app:layout_constraintStart_toStartOf="@+id/image_popularity"
+        app:layout_constraintTop_toBottomOf="@+id/image_popularity"
+        tools:text="421.2356" />
+
+    <TextView
+        android:id="@+id/text_vote_average"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_star"
+        app:layout_constraintStart_toStartOf="@+id/image_star"
+        app:layout_constraintTop_toBottomOf="@+id/image_star"
+        tools:text="72.1" />
+
+    <TextView
+        android:id="@+id/text_popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_vote_average"
+        app:layout_constraintStart_toStartOf="@+id/image_vote_average"
+        app:layout_constraintTop_toBottomOf="@+id/image_vote_average"
+        tools:text="145.257" />
+
+    <View
+        android:id="@+id/view_two"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/castAndCrew"
-        tools:text="@string/dummyText" />
+        app:layout_constraintTop_toBottomOf="@+id/text_vote_count" />
 
     <TextView
         android:id="@+id/overView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/overview"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_cast" />
+        app:layout_constraintTop_toBottomOf="@+id/view_two" />
 
     <TextView
         android:id="@+id/text_overview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_share"

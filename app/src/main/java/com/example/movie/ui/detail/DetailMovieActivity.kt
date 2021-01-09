@@ -1,18 +1,22 @@
 package com.example.movie.ui.detail
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.example.movie.BuildConfig
 import com.example.movie.R
 import com.example.movie.data.Movie
 import com.example.movie.data.TvShow
 import com.example.movie.databinding.ActivityDetailMovieBinding
 import com.example.movie.databinding.DetailContentMovieBinding
+import com.example.movie.ui.viewmodel.ViewModelFactory
 
 class DetailMovieActivity : AppCompatActivity(), DetailActivityCallback {
 
@@ -20,7 +24,12 @@ class DetailMovieActivity : AppCompatActivity(), DetailActivityCallback {
 
         const val EXTRA_MOVIE = "extra_movie"
 
-        const val EXTRA_TV = "extra_tv"
+        const val EXTRA_TYPE = "extra_type"
+
+        const val TYPE_MOVIE = "type_movie"
+
+        const val TYPE_TV = "type_tv"
+
     }
 
     private lateinit var detailContentMovieBinding: DetailContentMovieBinding
@@ -39,91 +48,125 @@ class DetailMovieActivity : AppCompatActivity(), DetailActivityCallback {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailMovieViewModel::class.java]
+        val factory = ViewModelFactory.getInstance()
 
-        val extras = intent.extras ?: return
+        val viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
-        val idMovie = extras.getString(EXTRA_MOVIE)
+        val id = intent.getIntExtra(EXTRA_MOVIE, 0)
 
-        val idTv = extras.getString(EXTRA_TV)
+        val type = intent.getStringExtra(EXTRA_TYPE)
 
-        when {
-            idMovie != null -> {
+        if (type.equals(TYPE_MOVIE, ignoreCase = true)) {
 
-                viewModel.setSelectedMovie(idMovie)
+            activityDetailMovieBinding.progressBar.visibility = View.VISIBLE
 
-                bindToMovie(viewModel.getMovie())
+            activityDetailMovieBinding.scrollView.visibility = View.INVISIBLE
 
-            }
-            idTv != null -> {
+            viewModel.getDetailMovie(id).observe(this, { movie ->
 
-                viewModel.setSelectedMovie(idTv)
+                activityDetailMovieBinding.progressBar.visibility = View.GONE
 
-                bindToTv(viewModel.getTvShow())
-            }
+                activityDetailMovieBinding.scrollView.visibility = View.VISIBLE
+
+                bindToMovie(movie)
+            })
+        } else if (type.equals(TYPE_TV, ignoreCase = true)) {
+
+            activityDetailMovieBinding.progressBar.visibility = View.VISIBLE
+
+            activityDetailMovieBinding.scrollView.visibility = View.INVISIBLE
+
+            viewModel.getDetailTvShow(id).observe(this, { tvShow ->
+
+                activityDetailMovieBinding.progressBar.visibility = View.GONE
+
+                activityDetailMovieBinding.scrollView.visibility = View.VISIBLE
+
+                bindToTvShow(tvShow)
+            })
         }
     }
 
-    private fun bindToMovie(movies: Movie?) {
+    @SuppressLint("DefaultLocale")
+    private fun bindToMovie(movies: Movie) {
 
-        detailContentMovieBinding.textTitle.text = movies?.title
+        detailContentMovieBinding.textTitle.text = movies.title
 
-        detailContentMovieBinding.textSubtitle.text = movies?.subTitle
+        detailContentMovieBinding.textRelease.text = movies.releaseDate
 
-        detailContentMovieBinding.textDate.text = movies?.dateRelease
+        detailContentMovieBinding.textLanguage.text = movies.originalLanguage
 
-        detailContentMovieBinding.textGenre.text = movies?.genre
+        detailContentMovieBinding.textVoteAverage.text = movies.voteAverage.toString()
 
-        detailContentMovieBinding.textCast.text = movies?.actrees
+        detailContentMovieBinding.textVoteCount.text = movies.voteCount.toString()
 
-        detailContentMovieBinding.textOverview.text = movies?.overview
+        detailContentMovieBinding.textPopularity.text = movies.popularity.toString()
+
+        detailContentMovieBinding.textOverview.text = movies.overview
 
         detailContentMovieBinding.btnShare.setOnClickListener { onShareClick() }
 
+        getImageMovie(movies)
+    }
+
+    private fun getImageMovie(movies: Movie) {
         Glide.with(this)
 
-                .load(movies?.image)
+                .load(BuildConfig.BASE_BACKGROUND_URL + movies.backdropPath)
 
                 .transform(RoundedCorners(10))
 
                 .centerCrop()
 
-                .apply(RequestOptions.placeholderOf(R.drawable.ic_image_search)
+                .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_image_search)
 
-                        .error(R.drawable.ic_broken_image_gray))
+                                .error(R.drawable.ic_broken_image_gray)
+                )
 
                 .into(detailContentMovieBinding.imagePoster)
     }
 
-    private fun bindToTv(tv: TvShow?) {
+    @SuppressLint("DefaultLocale")
+    private fun bindToTvShow(tvShow: TvShow) {
 
-        detailContentMovieBinding.textTitle.text = tv?.title
+        detailContentMovieBinding.textTitle.text = tvShow.name
 
-        detailContentMovieBinding.textSubtitle.text = tv?.subTitle
+        detailContentMovieBinding.textRelease.text = tvShow.firstAirDate
 
-        detailContentMovieBinding.textDate.text = tv?.dateRelease
+        detailContentMovieBinding.textLanguage.text = tvShow.originalLanguage
 
-        detailContentMovieBinding.textGenre.text = tv?.genre
+        detailContentMovieBinding.textVoteAverage.text = tvShow.voteAverage.toString()
 
-        detailContentMovieBinding.textCast.text = tv?.actrees
+        detailContentMovieBinding.textVoteCount.text = tvShow.voteCount.toString()
 
-        detailContentMovieBinding.textOverview.text = tv?.overview
+        detailContentMovieBinding.textPopularity.text = tvShow.popularity.toString()
+
+        detailContentMovieBinding.textOverview.text = tvShow.overview
 
         detailContentMovieBinding.btnShare.setOnClickListener { onShareClick() }
 
+        getImageMovie(tvShow)
+    }
+
+    private fun getImageMovie(tvShow: TvShow) {
         Glide.with(this)
-                .load(tv?.image)
+
+                .load(BuildConfig.BASE_BACKGROUND_URL + tvShow.backdropPath)
 
                 .transform(RoundedCorners(10))
 
                 .centerCrop()
 
-                .apply(RequestOptions.placeholderOf(R.drawable.ic_image_search)
+                .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_image_search)
 
-                        .error(R.drawable.ic_broken_image_gray))
+                                .error(R.drawable.ic_broken_image_gray)
+                )
 
                 .into(detailContentMovieBinding.imagePoster)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -141,7 +184,7 @@ class DetailMovieActivity : AppCompatActivity(), DetailActivityCallback {
 
             action = Intent.ACTION_SEND
 
-            putExtra(Intent.EXTRA_TEXT, "https://www.themoviedb.org/")
+            putExtra(Intent.EXTRA_TEXT, BuildConfig.SHARE_URL)
 
             type = "text/plain"
         }

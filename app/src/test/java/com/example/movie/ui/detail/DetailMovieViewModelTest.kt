@@ -1,83 +1,134 @@
 package com.example.movie.ui.detail
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import com.example.movie.data.Movie
+import com.example.movie.data.TvShow
+import com.example.movie.data.source.MovieRepository
 import com.example.movie.utils.DataMovie
+import com.nhaarman.mockitokotlin2.verify
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class DetailMovieViewModelTest {
 
     private lateinit var viewModel: DetailMovieViewModel
 
-    private val movies = DataMovie.generateDataMovie()[0]
+    private val dummyMovies = DataMovie.generateDataMovie()[0]
 
-    private val idMovie = movies.id
+    private val idMovie = dummyMovies.id
 
-    private val tvShows = DataMovie.generateDataTvShow()[0]
+    private val dummyTvShows = DataMovie.generateDataTvShow()[0]
 
-    private val idTvShow = tvShows.id
+    private val idTvShow = dummyTvShows.id
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @Mock
+    private lateinit var movieRepository: MovieRepository
+
+    @Mock
+    private lateinit var movieObserver: Observer<Movie>
+
+    @Mock
+    private lateinit var tvObserver: Observer<TvShow>
+
 
     @Before
     fun setUp() {
 
-        viewModel = DetailMovieViewModel()
+        viewModel = DetailMovieViewModel(movieRepository)
 
-        viewModel.setSelectedMovie(idMovie)
+        viewModel.getDetailMovie(idMovie)
 
-        viewModel.setSelectedMovie(idTvShow)
+        viewModel.getDetailTvShow(idTvShow)
+
     }
 
     @Test
     fun getMovie() {
 
-        viewModel.setSelectedMovie(movies.id)
+        val movies = MutableLiveData<Movie>()
 
-        val movie = viewModel.getMovie()
+        movies.value = dummyMovies
 
-        assertNotNull(movies)
+        `when`(movieRepository.getDetailMovie(idMovie)).thenReturn(movies)
 
-        assertEquals(movie.id, movies.id)
+        val movieEntities = viewModel.getDetailMovie(idMovie).value as Movie
 
-        assertEquals(movie.image, movies.image)
+        assertNotNull(movieEntities)
 
-        assertEquals(movie.title, movies.title)
+        assertEquals(dummyMovies.id, movieEntities.id)
 
-        assertEquals(movie.subTitle, movies.subTitle)
+        assertEquals(dummyMovies.title, movieEntities.title)
 
-        assertEquals(movie.dateRelease, movies.dateRelease)
+        assertEquals(dummyMovies.releaseDate, movieEntities.releaseDate)
 
-        assertEquals(movie.genre, movies.genre)
+        assertEquals(dummyMovies.originalLanguage, movieEntities.originalLanguage)
 
-        assertEquals(movie.actrees, movies.actrees)
+        assertEquals(dummyMovies.popularity, movieEntities.popularity)
 
-        assertEquals(movie.overview, movies.overview)
+        assertEquals(dummyMovies.voteCount, movieEntities.voteCount)
+
+        assertEquals(dummyMovies.voteAverage, movieEntities.voteAverage)
+
+        assertEquals(dummyMovies.overview, movieEntities.overview)
+
+        assertEquals(dummyMovies.posterPath, movieEntities.posterPath)
+
+        assertEquals(dummyMovies.backdropPath, movieEntities.backdropPath)
+
+        viewModel.getDetailMovie(idMovie).observeForever(movieObserver)
+
+        verify(movieObserver).onChanged(dummyMovies)
     }
 
     @Test
     fun getTvShow() {
 
-        viewModel.setSelectedMovie(tvShows.id)
+        val tvShows = MutableLiveData<TvShow>()
 
-        val tvShow = viewModel.getTvShow()
+        tvShows.value = dummyTvShows
 
-        assertNotNull(tvShows)
+        `when`(movieRepository.getDetailTvShow(idTvShow)).thenReturn(tvShows)
 
-        assertEquals(tvShow.id, tvShows.id)
+        val tvShowEntities = viewModel.getDetailTvShow(idTvShow).value as TvShow
 
-        assertEquals(tvShow.image, tvShows.image)
+        assertNotNull(tvShowEntities)
 
-        assertEquals(tvShow.title, tvShows.title)
+        assertEquals(dummyTvShows.id, tvShowEntities.id)
 
-        assertEquals(tvShow.subTitle, tvShows.subTitle)
+        assertEquals(dummyTvShows.name, tvShowEntities.name)
 
-        assertEquals(tvShow.dateRelease, tvShows.dateRelease)
+        assertEquals(dummyTvShows.firstAirDate, tvShowEntities.firstAirDate)
 
-        assertEquals(tvShow.genre, tvShows.genre)
+        assertEquals(dummyTvShows.originalLanguage, tvShowEntities.originalLanguage)
 
-        assertEquals(tvShow.actrees, tvShows.actrees)
+        assertEquals(dummyTvShows.popularity, tvShowEntities.popularity)
 
-        assertEquals(tvShow.overview, tvShows.overview)
+        assertEquals(dummyTvShows.voteCount, tvShowEntities.voteCount)
+
+        assertEquals(dummyTvShows.voteAverage, tvShowEntities.voteAverage)
+
+        assertEquals(dummyTvShows.overview, tvShowEntities.overview)
+
+        assertEquals(dummyTvShows.posterPath, tvShowEntities.posterPath)
+
+        assertEquals(dummyTvShows.backdropPath, tvShowEntities.backdropPath)
+
+        viewModel.getDetailTvShow(idTvShow).observeForever(tvObserver)
+
+        verify(tvObserver).onChanged(dummyTvShows)
 
     }
 }

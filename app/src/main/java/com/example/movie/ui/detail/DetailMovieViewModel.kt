@@ -1,48 +1,14 @@
 package com.example.movie.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.movie.data.Movie
 import com.example.movie.data.TvShow
-import com.example.movie.utils.DataMovie
+import com.example.movie.data.source.MovieRepository
 
-class DetailMovieViewModel : ViewModel() {
+class DetailMovieViewModel(private val movieRepository: MovieRepository) : ViewModel() {
 
-    private lateinit var id: String
+    fun getDetailMovie(movieId: Int): LiveData<Movie> = movieRepository.getDetailMovie(movieId)
 
-    fun setSelectedMovie(id: String) {
-
-        this.id = id
-    }
-
-    fun getMovie(): Movie {
-
-        lateinit var movie: Movie
-
-        val movies = DataMovie.generateDataMovie()
-
-        movies
-                .asSequence()
-
-                .filter { it.id == id }
-
-                .forEach { movie = it }
-
-        return movie
-    }
-
-    fun getTvShow(): TvShow {
-
-        lateinit var tvShow: TvShow
-
-        val tvShows = DataMovie.generateDataTvShow()
-
-        tvShows
-                .asSequence()
-
-                .filter { it.id == id }
-
-                .forEach { tvShow = it }
-
-        return tvShow
-    }
+    fun getDetailTvShow(tvShowId: Int): LiveData<TvShow> = movieRepository.getDetailTvShow(tvShowId)
 }

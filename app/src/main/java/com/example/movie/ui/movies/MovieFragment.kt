@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.movie.R
 import com.example.movie.databinding.FragmentMovieBinding
 import com.example.movie.ui.other.SpaceItemDecoration
+import com.example.movie.ui.viewmodel.ViewModelFactory
 
 class MovieFragment : Fragment() {
 
@@ -29,13 +30,22 @@ class MovieFragment : Fragment() {
 
         if (activity != null) {
 
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val modelFactory = ViewModelFactory.getInstance()
 
-            val movies = viewModel.getMovie()
+            val viewModel = ViewModelProvider(this, modelFactory)[MovieViewModel::class.java]
 
             val movieAdapter = MovieAdapter()
 
-            movieAdapter.setMovie(movies)
+            fragmentMovieBinding.progressBar.visibility = View.VISIBLE
+
+            viewModel.getMovie().observe(this, { movies ->
+
+                fragmentMovieBinding.progressBar.visibility = View.GONE
+
+                movieAdapter.setMovie(movies)
+
+                movieAdapter.notifyDataSetChanged()
+            })
 
             with(fragmentMovieBinding.rvMovie) {
 

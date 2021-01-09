@@ -1,23 +1,31 @@
 package com.example.movie.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class TvShow(
 
-        var id: String,
+        val id: Int,
 
-        var title: String,
+        val name: String?,
 
-        var subTitle: String,
+        val firstAirDate: String?,
 
-        var image: String,
+        val originalLanguage: String?,
 
-        var dateRelease: String,
+        val popularity: Double?,
 
-        var userScore: String,
+        val voteCount: Int?,
 
-        var genre: String,
+        val voteAverage: Double?,
 
-        var actrees: String,
+        val overview: String?,
 
-        var overview: String,
+        val posterPath: String?,
 
-        )
+        val backdropPath: String?,
+
+        ) : Parcelable
+
+

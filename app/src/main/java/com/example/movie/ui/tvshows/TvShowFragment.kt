@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movie.R
 import com.example.movie.databinding.FragmentTvShowBinding
 import com.example.movie.ui.other.SpaceItemDecoration
+import com.example.movie.ui.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment() {
 
@@ -23,17 +24,27 @@ class TvShowFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
 
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val modelFactory = ViewModelFactory.getInstance()
 
-            val tvShow = viewModel.getTvShow()
+            val viewModel = ViewModelProvider(this, modelFactory)[TvShowViewModel::class.java]
 
             val tvShowAdapter = TvShowAdapter()
 
-            tvShowAdapter.setTvShow(tvShow)
+            fragmentTvShowBinding.progressBar.visibility = View.VISIBLE
+
+            viewModel.getTvSHow().observe(this, { tvShow ->
+
+                fragmentTvShowBinding.progressBar.visibility = View.GONE
+
+                tvShowAdapter.setTvShow(tvShow)
+
+                tvShowAdapter.notifyDataSetChanged()
+            })
 
             with(fragmentTvShowBinding.rvTvShow) {
 
@@ -50,7 +61,5 @@ class TvShowFragment : Fragment() {
                 adapter = tvShowAdapter
             }
         }
-
     }
-
 }
