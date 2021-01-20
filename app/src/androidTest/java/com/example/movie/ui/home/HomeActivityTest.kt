@@ -1,107 +1,125 @@
 package com.example.movie.ui.home
 
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.core.app.ActivityScenario
-import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.swipeUp
-import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.rule.ActivityTestRule
 import com.example.movie.R
-import com.example.movie.utils.DataMovie
 import com.example.movie.utils.EspressoIdlingResource
-import org.junit.After
-import org.junit.Before
-import org.junit.Test
+import org.junit.*
+import org.junit.runners.MethodSorters
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class HomeActivityTest {
 
-    private val dummyMovie = DataMovie.generateDataMovie()
-
-    private val dummyTvShow = DataMovie.generateDataTvShow()
+    @get:Rule
+    var activityRule = ActivityTestRule(HomeActivity::class.java)
 
     @Before
     fun setUp() {
-        ActivityScenario.launch(HomeActivity::class.java)
-
         IdlingRegistry.getInstance().register(EspressoIdlingResource.espressoTestIdlingResource)
     }
 
     @After
     fun tearDown() {
-
         IdlingRegistry.getInstance().unregister(EspressoIdlingResource.espressoTestIdlingResource)
     }
 
     @Test
-    fun loadMovie() {
-
-        onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(2))
-
+    fun loadAllListDataMovie() {
+        Espresso.onView(ViewMatchers.withId(R.id.rv_movie)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_movie))
+                .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
     }
 
     @Test
-    fun loadDetailMovie() {
-
-        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-
-        onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_title)).check(matches(withText(dummyMovie[0].title)))
-
-        onView(withId(R.id.text_release)).check(matches(withText(dummyMovie[0].releaseDate)))
-
-        onView(withId(R.id.text_language)).check(matches(withText("en")))
-
-        onView(withId(R.id.text_vote_average)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_vote_count)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_overview)).check(matches(withText(dummyMovie[0].overview)))
-
-        onView(withId(R.id.scroll_view)).perform(swipeUp())
-
-        onView(withId(R.id.btn_share)).perform(click())
+    fun loadAllListDataTv() {
+        Espresso.onView(ViewMatchers.withId(R.id.tv)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.rv_tv_show)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_tv_show))
+                .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
     }
 
     @Test
-    fun loadTvShows() {
-
-        onView(withText("Tv Show")).perform(click())
-
-        onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
-
+    fun insertDataMovie() {
+        Espresso.onView(ViewMatchers.withId(R.id.rv_movie)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_movie)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                        0,
+                        ViewActions.click()
+                )
+        )
+        Espresso.onView(ViewMatchers.withId(R.id.image_poster)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_release)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_language)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_average)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_count)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_overview)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.scroll_view)).perform(ViewActions.swipeUp())
+        Espresso.onView(ViewMatchers.withId(R.id.fab_favorite)).perform(ViewActions.click())
     }
 
     @Test
-    fun loadDetailTvShow() {
+    fun insertDataTvShow() {
+        Espresso.onView(ViewMatchers.withId(R.id.tv)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.rv_tv_show)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
+        Espresso.onView(ViewMatchers.withId(R.id.image_poster)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_release)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_language)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_average)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_count)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_overview)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.scroll_view)).perform(ViewActions.swipeUp())
+        Espresso.onView(ViewMatchers.withId(R.id.fab_favorite)).perform(ViewActions.click())
+    }
 
-        onView(withText("Tv Show")).perform(click())
+    @Test
+    fun removeFavoriteMovie() {
+        Espresso.onView(ViewMatchers.withId(R.id.favorite)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.rv_fav_movie)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_fav_movie)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                        0,
+                        ViewActions.click()
+                )
+        )
+        Espresso.onView(ViewMatchers.withId(R.id.image_poster)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_release)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_language)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_average)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_count)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_overview)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.scroll_view)).perform(ViewActions.swipeUp())
+        Espresso.onView(ViewMatchers.withId(R.id.fab_favorite)).perform(ViewActions.click())
+    }
 
-        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-
-        onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_title)).check(matches(withText(dummyTvShow[0].name)))
-
-        onView(withId(R.id.text_release)).check(matches(withText(dummyTvShow[0].firstAirDate)))
-
-        onView(withId(R.id.text_language)).check(matches(withText(dummyTvShow[0].originalLanguage)))
-
-        onView(withId(R.id.text_vote_average)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_vote_count)).check(matches(isDisplayed()))
-
-        onView(withId(R.id.text_overview)).check(matches(withText(dummyTvShow[0].overview)))
-
-        onView(withId(R.id.scroll_view)).perform(swipeUp())
-
-        onView(withId(R.id.btn_share)).perform(click())
+    @Test
+    fun removeFavoriteTv() {
+        Espresso.onView(ViewMatchers.withId(R.id.favorite)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withText("TV SHOW")).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.rv_fav_tv_show)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.rv_fav_tv_show)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                        0,
+                        ViewActions.click()
+                )
+        )
+        Espresso.onView(ViewMatchers.withId(R.id.image_poster)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_release)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_language)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_average)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_vote_count)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.text_overview)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.scroll_view)).perform(ViewActions.swipeUp())
+        Espresso.onView(ViewMatchers.withId(R.id.fab_favorite)).perform(ViewActions.click())
     }
 }

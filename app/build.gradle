@@ -2,11 +2,12 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.movie"
@@ -22,7 +23,7 @@ android {
         buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
         buildConfigField("String", "BASE_BACKGROUND_URL", '"https://www.themoviedb.org/t/p/w780"')
         buildConfigField("String", "BASE_POSTER_URL", '"https://www.themoviedb.org/t/p/w220_and_h330_face"')
-        buildConfigField("String", "SHARE_URL", '"https://www.themoviedb.org')
+        buildConfigField("String", "SHARE_URL", '"https://www.themoviedb.org"')
     }
 
     buildTypes {
@@ -60,6 +61,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVesion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //testing
     testImplementation "junit:junit:$junitVersion"
@@ -70,7 +72,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$junitExtversion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
 
-    //Couroutines
+    //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
 
@@ -82,4 +84,18 @@ dependencies {
 
     //Idling Resource
     implementation "com.android.support.test.espresso:espresso-idling-resource:$idlingResource"
+
+    //Room
+    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    //paging
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+
 }

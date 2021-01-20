@@ -3,11 +3,10 @@ package com.example.movie.ui.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.movie.data.Movie
-import com.example.movie.data.TvShow
-import com.example.movie.data.source.MovieRepository
+import com.example.movie.data.source.AllRepository
+import com.example.movie.data.source.local.entity.Movie
+import com.example.movie.data.source.local.entity.TvShow
 import com.example.movie.utils.DataMovie
-import com.nhaarman.mockitokotlin2.verify
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.Before
@@ -16,6 +15,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -35,7 +35,7 @@ class DetailMovieViewModelTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var movieRepository: MovieRepository
+    private lateinit var movieRepository: AllRepository
 
     @Mock
     private lateinit var movieObserver: Observer<Movie>

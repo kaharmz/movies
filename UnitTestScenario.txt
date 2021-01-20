@@ -1,22 +1,40 @@
 #Unit test
 
-MovieViewModelTest
+AllRepositoryTest
     Memuat Movie
        1. memanipulasi data ketika pemanggilan data movie di kelas repository
        2. memastikan metode dikelas repository terpanggil
        3. melakukan pengecekan data movie apakah null atau tidak
        4. melakukan pengecekan jumlah movie sesuai
-        
-TvShowViewModelTest
-    Memuat TvShow
-       1. memanipulasi data ketika pemanggilan data Tv Show di kelas repository
+       
+    Memuat detail movie
+       1.memanipulasi data ketika pemanggilan data movie berdasarkan id di kelas repository
+       2.memastikan metode dikelas repository terpanggil
+       3.melakukan pengecekan data id movie apakah null atau tidak
+       4.melakukan pengecekan id movie sesuai
+       
+    Memuat Tv Shows
+       1. memanipulasi data ketika pemanggilan data tv show di kelas repository
        2. memastikan metode dikelas repository terpanggil
-       3. melakukan pengecekan data Tv Show apakah null atau tidak
-       4. melakukan pengecekan jumlah Tv Show sesuai
+       3. melakukan pengecekan data tv show apakah null atau tidak
+       4. melakukan pengecekan jumlah tv show sesuai
+       
+    Memuat Detail Tv Shows
+       1.memanipulasi data ketika pemanggilan data tv show berdasarkan id di kelas repository
+       2.memastikan metode dikelas repository terpanggil
+       3.melakukan pengecekan data id tv show apakah null atau tidak
+       4.melakukan pengecekan id tv show sesuai
+       
+    Memuat Favorite Movie
+       1. memanipulasi data ketika pemanggilan data favorite movie di kelas repository
+       2. memastikan metode dikelas repository terpanggil
+       3. melakukan pengecekan data favorite movie apakah null atau tidak
+       4. melakukan pengecekan jumlah favorite movie sesuai
+       
+    Memuat Favorite Tv Shows
+       1. memanipulasi data ketika pemanggilan data favorite tv show di kelas repository
+       2. memastikan metode dikelas repository terpanggil
+       3. melakukan pengecekan data favorite tv show apakah null atau tidak
+       4. melakukan pengecekan jumlah favorite tv show sesuai
         
-DetailMovieViewModelTest
-    Memuat data Movie dan TvShow
-       1. Memanipulasi data ketika pemanggilan data Movie dan TvShow di kelas repository.
-       2. Memastikan metode di kelas repository terpanggil.
-       3. Melakukan pengecekan data Movie dan TvShow apakah null atau tidak.
-       4. Membandingkan data Movie dan TvShow sudah sesuai dengan yang diharapkan atau tidak.
+
